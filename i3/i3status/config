@@ -1,0 +1,42 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+order += "volume master"
+order += "disk /"
+order += "run_watch DHCP"
+order += "run_watch VPN"
+order += "wireless wlp2s0"
+order += "battery 1"
+order += "cpu_usage"
+order += "cpu_temperature 0"
+order += "tztime local"
+
+volume master {
+	format    = "♪ %volume "
+	device    = "default"
+	mixer     = "Master"
+	mixer_idx = 0
+}
+
+battery 1 {
+   format = "❤ %percentage"
+	path   = "/sys/class/power_supply/BAT1/uevent"
+}
+
+tztime local {
+   format = "%I:%M"
+   timezone = "Europe/Moscow"
+}
+
+cpu_usage {
+   format = "▣ %usage"
+}
+
+cpu_temperature 0 {
+   format = "≈ %degrees °C"
+}
